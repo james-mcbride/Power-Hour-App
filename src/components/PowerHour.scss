@@ -1,0 +1,372 @@
+html, body, #root, .App {
+  background: black;
+  input {
+    font-size: 16px;
+  }
+}
+
+a {
+  color: gold;
+}
+
+.back-to-profile-button {
+  position: absolute;
+  top: -20px;
+  right: 5px;
+  font-family: "Neon Retro";
+  background: gold;
+  color: black;
+  border: none;
+}
+
+.power-hour-button {
+  font-family: "Neon Retro";
+  font-size: large;
+  padding: 5px 50px;
+  color: black;
+  background: gold;
+}
+
+.login-page, .edit-power-hour {
+  position: relative;
+  background: black;
+  width: 100%;
+  height: 100%;
+  color: gold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .power-hour-logo {
+    width: 90%;
+    max-width: 800px;
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 75%;
+      object-fit: cover;
+    }
+  }
+  .login-page-form, .power-hour-form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+    font-size: 30px;
+    font-family: "Neon Retro";
+    letter-spacing: 1px;
+    input {
+      max-width: 40%;
+      margin: 10px;
+      height: 30px;
+    }
+    button {
+      font-family: "Neon Retro";
+      letter-spacing: 1px;
+      font-size: 25px;
+      border: 2px solid gold;
+      background: black;
+      color: gold;
+      padding: 3px;
+      height: 40px;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+
+  }
+}
+
+.edit-power-hour {
+  margin-top: 25px;
+  text-align: center;
+  font-family: "Neon Retro";
+  position: relative;
+
+  h1 {
+    margin-top: 0;
+  }
+
+  .edit-power-hour-playlist {
+    display: flex;
+    .power-hour-playlist, .new-video-container {
+      width: 50%;
+    }
+
+    .power-hour-playlist {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .power-hour-logo {
+    position: absolute;
+    width: 100px;
+    right: 10px;
+    top: 0;
+    img {
+      width: 100px;
+    }
+  }
+
+  .video-search-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.playlist-item {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  .playlist-item-number {
+
+  }
+}
+
+.add-to-playlist-button {
+  width: 40%;
+  color: black;
+  background: lightgreen;
+  font-size: x-large;
+  font-family: "Simple Plan"
+}
+
+.searchbar {
+  input {
+    width: 70%;
+    margin: 10px;
+  }
+}
+
+.power-hour-lists {
+  display: flex;
+
+  .power-hour-list {
+    width: 30%;
+    color: gold;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-item.item img{
+    min-width: 60px;
+  }
+}
+
+.power-hour-viewer {
+  position: relative;
+  height: 100%;
+  iframe {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    background: transparent;
+  }
+  .power-hour-header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      text-align: center;
+      color: gold;
+      font-size: 15vh;
+      margin: 0;
+    }
+  }
+}
+
+#finish-song-selection-modal {
+  width: fit-content;
+  background: black!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: gold;
+  margin: auto;
+  height: fit-content;
+  text-align: center;
+  font-family: "Neon Retro";
+  font-size: x-large;
+  #finish-song-selection-div {
+    position: relative;
+    padding: 50px 10px;
+  }
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+
+  button {
+    background: gold;
+    color: black;
+  }
+}
+
+.close-button {
+  font-family: "Neon Retro";
+}
+
+.confirm-button {
+  margin: 10px;
+  padding: 5px 40px;
+  font-family: "Neon Retro";
+  font-size: large;
+}
+
+#edit-video-selection-modal {
+  width: 70%;
+  display: table;
+  margin: auto;
+  background: black!important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: gold;
+  .video-item {
+    height: 50%;
+  }
+  .video-detail-image img {
+    width: 40vw;
+    height: 20vw;
+    margin: auto;
+    margin-top: 10px;
+  }
+  .edit-video-form div {
+    margin: 20px;
+    input {
+      margin-left: 10px;
+    }
+  }
+  button {
+    background: gold
+  }
+
+  #edit-video-selection-div{
+    font-family: "Neon Retro";
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .close-button {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+
+  }
+}
+
+.profile {
+  font-family: "Neon Retro";
+  width: 100%;
+  text-align: center;
+  .power-hour-logo {
+    width: fit-content;
+    max-height: 25vh;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    img {
+      width: 100%;
+    }
+  }
+  button {
+    background: gold;
+    color: black;
+  }
+
+}
+
+.finish-song-button {
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 25%;
+}
+
+.skip-song-button {
+  top: 3px;
+  left: 3px;
+  width: 15%;
+  height: 15%;
+  background: black;
+  padding: 3px;
+  border-radius: 3px;
+  opacity: 80%;
+}
+
+.action-button {
+  position: absolute;
+  z-index: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#song-selection-demo {
+  margin-bottom: 25px;
+  height: 3em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  .action-button, svg {
+    position: relative;
+    height: 2em;
+    width: 2em;
+    padding-bottom: .3em;
+    margin: 0 3px;
+  }
+  span.text {
+    padding-top: .5em;
+  }
+}
+
+@media screen and (min-width: 300px) {
+  #finish-song-selection-modal {
+    width: 75vw;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #finish-song-selection-modal {
+    width: 50vw;
+  }
+}
+
+
+
+@font-face {
+  font-family: "Simple Plan";
+  src: url("./fonts/simplePlan.TTF") format('truetype')
+}
+
+@font-face {
+  font-family: "Retro";
+  src: url("./fonts/RetroVibes.ttf") format('truetype')
+}
+
+@font-face {
+  font-family: "Neon Retro";
+  src: url("./fonts/NeonRetro-DemoVersion-Regular.otf") format('truetype')
+}

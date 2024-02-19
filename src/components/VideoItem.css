@@ -1,0 +1,22 @@
+.video-item{
+    position: relative;
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 60%;
+    margin: 10px;
+    background: gold;
+    color: black;
+    padding: 5px;
+}
+
+.video-item.item img{
+    max-width: 40%;
+    min-width: 100px;
+}
+
+.content {
+    width: 100%;
+}
