@@ -30,7 +30,7 @@ const VideoItem = ({onVideoSelect, video, youtubeId, videoSelection}) => {
         const userSelectedSkipVideo = videoSelection?.videoSelectionActions?.filter(videoSelectionAction => {
             return videoSelectionAction.action === 'SKIP' && videoSelectionAction.user.username?.toLowerCase() === username?.toLowerCase();
         })
-        setSkipVideo(userSelectedSkipVideo.length > 0)
+        setSkipVideo(userSelectedSkipVideo?.length > 0)
         setFinishVideo(userSelectedFinishVideo?.length > 0)
     }, [])
 
