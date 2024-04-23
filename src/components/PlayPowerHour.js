@@ -13,7 +13,7 @@ function PlayPowerHour() {
 
     const getLatestPowerHour = timeout => {
         setTimeout(() => {
-            axios.get(`http://192.168.86.249:8091/powerHour/${powerHourId}`)
+            axios.get(`http://192.168.86.21:8091/powerHour/${powerHourId}`)
                 .then(response => {
                     setPowerHour(response.data)
                     getLatestPowerHour(5000)
@@ -70,7 +70,7 @@ function PlayPowerHour() {
     const playNextVideo = async (index, previousVideoPlayedEntireTime) => {
         setVideoBeingSkipped(null)
         setPlaying(false)
-        const latestPlaylist = await axios.get(`http://192.168.86.249:8091/powerHour/${powerHourId}`)
+        const latestPlaylist = await axios.get(`http://192.168.86.21:8091/powerHour/${powerHourId}`)
         if (latestPlaylist.data.videoSelections.length === index) {
             setFinished(true)
             return
@@ -106,15 +106,17 @@ function PlayPowerHour() {
 
     useEffect(() => {
         if (powerHour && !currentVideo) {
-            const firstVideo = powerHour.videoSelections[0]
+            const startSongNumber = new URLSearchParams(window.location.search).get('startSong')
+            const firstVideoNumber = startSongNumber ? (Number(startSongNumber) - 1) : 0
+            const firstVideo = powerHour.videoSelections[firstVideoNumber]
             firstVideo.playStartTime = Date.now()
             if (shouldSkipNextVideo(firstVideo)) {
                 if (userSkippedOwnVideo(firstVideo)) {
-                    playNextVideo(1, false)
+                    playNextVideo(firstVideoNumber + 1, false)
                 } else {
                     setVideoBeingSkipped(firstVideo)
                     setTimeout(() => {
-                        playNextVideo(1, false)
+                        playNextVideo(firstVideoNumber + 1, false)
                     }, 5000)
                 }
                 return

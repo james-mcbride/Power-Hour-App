@@ -7,7 +7,7 @@ function VideoSelectionActionModal({open, videoSelection, onClose, currentFinish
 
     const addFinishVideoSelection = e => {
         e.stopPropagation()
-        axios.post(`http://192.168.86.249:8091/powerHour/videoSelection/${videoSelection.id}/videoSelectionAction`, {
+        axios.post(`http://192.168.86.21:8091/powerHour/videoSelection/${videoSelection.id}/videoSelectionAction`, {
             username: username,
             actionStatus: !currentFinishVideoSelectionStatus,
             action

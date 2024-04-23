@@ -9,7 +9,7 @@ function Profile() {
     const userId = window.location.href.split("/user/")[1]
     const [allPowerHours, setAllPowerHours] = useState([])
     useEffect(() => {
-        axios.get(`http://192.168.86.249:8091/powerHour`)
+        axios.get(`http://192.168.86.21:8091/powerHour`)
             .then(response => {
                 setAllPowerHours(response.data)
                 console.log(response.data)

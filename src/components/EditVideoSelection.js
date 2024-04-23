@@ -42,7 +42,7 @@ function EditVideoSelection({open, video, onUpdatePlaylist, onClose, powerHour})
     }
 
     const addToPlaylist = () => {
-        axios.post("http://192.168.86.249:8091/powerHour/addVideo", {
+        axios.post("http://192.168.86.21:8091/powerHour/addVideo", {
             username,
             powerHourId,
             youtubeId: video.id.videoId,
@@ -65,7 +65,7 @@ function EditVideoSelection({open, video, onUpdatePlaylist, onClose, powerHour})
     }
 
     const updateVideoSelection = () => {
-            axios.put(`http://192.168.86.249:8091/powerHour/videoSelection/${video.videoSelection.id}`, {
+            axios.put(`http://192.168.86.21:8091/powerHour/videoSelection/${video.videoSelection.id}`, {
                 username,
                 powerHourId,
                 youtubeId: video.id?.videoId || video.id,

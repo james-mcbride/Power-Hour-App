@@ -12,7 +12,7 @@ function Login({onLogin}) {
     const loginUser = () => {
         if (userName) {
             document.cookie = `username=${userName}`
-            axios.get(`http://192.168.86.249:8091/user/${userName}`)
+            axios.get(`http://192.168.86.21:8091/user/${userName}`)
                 .then(response => {
                     onLogin(response.data)
                     history.replace(`/user/${response.data.id}`)

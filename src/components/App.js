@@ -14,7 +14,7 @@ function App() {
 
     const loginUser = () => {
         if (username) {
-            axios.get(`http://192.168.86.249:8091/user/${username}`)
+            axios.get(`http://192.168.86.21:8091/user/${username}`)
                 .then(response => {
                     setLoggedInUser(response.data)
                 })

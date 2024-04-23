@@ -5,6 +5,7 @@ import {useHistory} from "react-router-dom";
 import VideoItem from "./VideoItem";
 import EditVideoSelection from "./EditVideoSelection";
 import SongSelectionStar from "./SongSelectionStar";
+import StartPowerHourModal from "./StartPowerHourModal";
 
 function EditPowerHour({loggedInUser}) {
     const history = useHistory();
@@ -13,9 +14,10 @@ function EditPowerHour({loggedInUser}) {
     const [powerHour, setPowerHour] = useState(null)
     const [openEditVideoModal, setOpenEditVideoModal] = useState(false)
     const [selectedVideo, setSelectedVideo] = useState(null)
+    const [openStartPowerHourModal, setOpenStartPowerHourModal] = useState(false)
 
     const getLatestPowerHour = () => {
-        axios.get(`http://192.168.86.249:8091/powerHour/${powerHourId}`)
+        axios.get(`http://192.168.86.21:8091/powerHour/${powerHourId}`)
             .then(response => {
                 setPowerHour(response.data)
             })
@@ -29,7 +31,7 @@ function EditPowerHour({loggedInUser}) {
     }, [])
 
     const submitPowerHour = () => {
-        axios.post("http://192.168.86.249:8091/powerHour/create", {
+        axios.post("http://192.168.86.21:8091/powerHour/create", {
             name: name
         }, {
             headers: {
@@ -65,6 +67,7 @@ function EditPowerHour({loggedInUser}) {
         <div className="edit-power-hour">
             <button className="back-to-profile-button" onClick={() => history.replace(`/user/${loggedInUser?.id}`)}>Back to profile</button>
             <EditVideoSelection open={openEditVideoModal} video={selectedVideo} onUpdatePlaylist={() => getLatestPowerHour()} onClose={() => setOpenEditVideoModal(false)} powerHour={powerHour}/>
+            <StartPowerHourModal onClose={() => setOpenStartPowerHourModal(false)} playlistId={powerHour?.id} open={openStartPowerHourModal}/>
             {!powerHour && (
                 <div className="power-hour-form">
                     <label htmlFor="name">
@@ -79,7 +82,7 @@ function EditPowerHour({loggedInUser}) {
                 <h1 className="edit-power-hour-title">
                     {powerHour.name}
                 </h1>
-                    <button className="power-hour-button" onClick={() => history.replace(`/powerHour/play/${powerHour?.id}`)}>Start Power Hour</button>
+                    <button className="power-hour-button" onClick={() => setOpenStartPowerHourModal(true)}>Start Power Hour</button>
                     <div className="edit-power-hour-playlist">
                         <div className="power-hour-playlist">
                             <h1>Playlist</h1>
